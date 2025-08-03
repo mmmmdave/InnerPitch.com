@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <!-- Favicon and Apple Icons -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inner Pitch | Hyper-Personalized B2B Sales Messaging Powered by Inferred Signals</title>
+  <meta name="description" content="Inner Pitch decodes what truly drives your prospects — their mindset, motivations, and insecurities — to craft outbound messages that actually connect. Not token-swapping. Real resonance.">
+
+        <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700;900&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --orange: #FF9900;
+    --yellow: #FFEE33;
+    --charcoal: #1A1A1A;
+    --light-gray: #F4F4F4;
+    --white: #FFFFFF;
+    --teal: #1DBFAF;
+  }
+
+  body {
+    font-family: 'Work Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--charcoal);
+    overflow-x: hidden;
+    font-size: 18px;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+
+  .header-font {
+    font-family: 'Source Serif Pro', serif;
+  }
+
+  /* Navigation - Simplified for mobile */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: all 0.3s ease;
+  }
+
+  .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--charcoal);
+  }
+
+  .logo-img {
+    height: 50px;
+    width: auto;
+  }
+
+  .nav-cta {
+    background: linear-gradient(135deg, var(--orange), #e68000);
+    color: white;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
+    white-space: nowrap;
+  }
+
+  .nav-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(255, 153, 0, 0.4);
+    color: white;
+    text-decoration: none;
+  }
+
+  /* Hero Section */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 70px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle at 30% 20%, rgba(255, 153, 0, 0.1) 0%, transparent 50%);
+    top: -25%;
+    left: -25%;
+    animation: pulse 8s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1) rotate(0deg);
+      opacity: 0.7;
+    }
+    50% {
+      transform: scale(1.1) rotate(5deg);
+      opacity: 0.4;
+    }
+  }
+
+  .hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-content {
+    max-width: 800px;
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    color: var(--charcoal);
+    font-family: 'Source Serif Pro', serif;
+  }
+
+  .hero .highlight {
+    background: linear-gradient(135deg, var(--orange), var(--yellow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+  }
+
+  .hero .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--orange), var(--yellow));
+    border-radius: 2px;
+    opacity: 0.6;
+  }
+
+  .hero-subtitle {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 3rem;
+    color: #4a4a4a;
+    line-height: 1.5;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--orange), #e68000);
+    color: white;
+    padding: 1.3rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(255, 153, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, var(--yellow), transparent);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    border-radius: 50%;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(255, 153, 0, 0.4);
+    color: white;
+    text-decoration: none;
+  }
+
+  .cta-button:hover::before {
+    width: 300px;
+    height: 300px;
+    opacity: 0.1;
+  }
+
+  /* Section Styles */
+  .section {
+    padding: 5rem 0;
+    position: relative;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--charcoal);
+    font-family: 'Source Serif Pro', serif;
+    line-height: 1.2;
+  }
+
+  .feature-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .text-content h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--charcoal);
+    font-family: 'Source Serif Pro', serif;
+    line-height: 1.2;
+  }
+
+  .text-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--charcoal);
+    font-family: 'Source Serif Pro', serif;
+    line-height: 1.3;
+  }
+
+  .text-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #555;
+    line-height: 1.7;
+  }
+
+  .text-content ul {
+    list-style: none;
+    margin-bottom: 2rem;
+  }
+
+  .text-content li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .text-content li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 12px;
+    height: 12px;
+    background: linear-gradient(135deg, var(--orange), var(--yellow));
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 153, 0, 0.4);
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .mb-5 {
+    margin-bottom: 3rem;
+  }
+
+  .mb-4 {
+    margin-bottom: 2rem;
+  }
+
+  /* Images - Now properly responsive */
+  .image-placeholder {
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  }
+
+  .image-placeholder img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+
+  .image-placeholder::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) scale(1);
+    }
+    50% {
+      transform: translateY(-20px) scale(1.1);
+    }
+  }
+
+  .image-placeholder span {
+    font-size: 1.1rem;
+    color: #888;
+    font-weight: 500;
+    z-index: 2;
+    position: relative;
+    text-align: center;
+    padding: 0 2rem;
+  }
+
+  .bg-alt {
+    background: var(--light-gray);
+  }
+
+  .bg-lightgray {
+    background: #f8f9fa;
+  }
+
+  /* Stats Section */
+  .stats-section {
+    background: linear-gradient(135deg, var(--charcoal) 0%, #2a2a2a 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .stats-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .stat-item {
+    padding: 2rem;
+    background: rgba(255, 153, 0, 0.1);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 153, 0, 0.2);
+    backdrop-filter: blur(10px);
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--yellow);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    line-height: 1.4;
+  }
+
+  .about-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, white 100%);
+  }
+
+  .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .about-content .name {
+    color: var(--orange);
+    font-weight: 600;
+  }
+
+  .final-cta {
+    background: linear-gradient(135deg, var(--orange), #e68000);
+    color: white;
+    text-align: center;
+  }
+
+  .final-cta h2 {
+    color: white;
+    margin-bottom: 1.5rem;
+  }
+
+  .final-cta p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+  }
+
+  .cta-button-white {
+    background: white;
+    color: var(--orange);
+    padding: 1.3rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .cta-button-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    color: var(--orange);
+    text-decoration: none;
+  }
+
+  /* FAQ Styles */
+  .faq details {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .faq details:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  }
+
+  .faq summary {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    outline: none;
+    list-style: none;
+    line-height: 1.4;
+  }
+
+  .faq summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq p {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  footer {
+    background: var(--charcoal);
+    color: white;
+    text-align: center;
+    padding: 3rem 0;
+  }
+
+  /* Mobile-specific adjustments */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.2rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+    }
+    
+    .text-content h2 {
+      font-size: 1.8rem;
+    }
+    
+    .nav-container {
+      padding: 0 1rem;
+    }
+    
+    .hero-container,
+    .container {
+      padding: 0 1rem;
+    }
+    
+    .cta-button,
+    .cta-button-white {
+      padding: 1.1rem 2rem;
+      font-size: 1rem;
+    }
+  }
+
+    @media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+}
+  /* Larger mobile screens */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  /* Desktop */
+  @media (min-width: 1025px) {
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+    
+    .nav-container {
+      height: 90px;
+    }
+    
+    .logo-img {
+      height: 70px;
+    }
+
+       .desktop-only {
+    display: none;
+  }
+  }
+</style>
+
+    </head>
+    <body>
+   
+   
+   <section id="terms-of-service" class="section legal-section">
+  <div class="container">
+    <h1 class="section-title">Terms of Service</h1>
+    <p><strong>Effective Date:</strong> August 3, 2025</p>
+
+    <p>Welcome to InnerPitch.com (“Site”), operated by Forty Years AI LLC d/b/a Inner Pitch (“we,” “us,” or “our”). By accessing or using this site or any of our services, you agree to the following Terms of Service (“Terms”). If you do not agree with these Terms, please do not use the Site or our services.</p>
+
+    <h3>1. Overview of Services</h3>
+    <p>Inner Pitch provides AI-generated outbound marketing and sales content based on inferred psychological signals, using publicly available data. We offer strategic messaging, email sequences, and prospect briefings, primarily for B2B companies.</p>
+
+    <h3>2. Eligibility</h3>
+    <p>You confirm that you are at least 18 years old and authorized to act on behalf of the organization you represent.</p>
+
+    <h3>3. Acceptable Use</h3>
+    <ul>
+      <li>No use for unlawful, unethical, or deceptive purposes</li>
+      <li>No submission of sensitive personal data</li>
+      <li>No abuse or reverse-engineering of our AI systems</li>
+      <li>No unauthorized redistribution of our IP or output</li>
+    </ul>
+
+    <h3>4. AI-Generated Content Disclaimer</h3>
+    <p>We use AI models to generate content. While we strive for accuracy, outputs may contain errors and require human review. You are responsible for ensuring final outputs meet your standards before public or client use.</p>
+
+    <h3>5. Intellectual Property</h3>
+    <p>All original content, branding, and designs belong to Inner Pitch. Generated content is for your internal use only, unless otherwise agreed.</p>
+
+    <h3>6. Data and Privacy</h3>
+    <p>We process only public and voluntarily submitted data. No personal identifiable information (PII) is accepted or stored. See our <a href="#privacy-policy">Privacy Policy</a> for details.</p>
+
+    <h3>7. Limitations of Liability</h3>
+    <p>We are not liable for any indirect, incidental, or consequential damages related to your use of the Site or services.</p>
+
+    <h3>8. Modifications to Services</h3>
+    <p>We may change or update our services at any time. Notice will be given for significant updates.</p>
+
+    <h3>9. Termination</h3>
+    <p>We may suspend or terminate service access at our discretion for any reason, including violation of these Terms.</p>
+
+    <h3>10. Governing Law</h3>
+    <p>These Terms are governed by the laws of the State of California.</p>
+
+    <h3>11. Contact</h3>
+    <p>Email: <a href="mailto:legal@innerpitch.com">legal@innerpitch.com</a></p>
+  </div>
+</section>
+<footer style="background-color: #111; color: #ccc; padding: 2rem 0; font-size: 0.9rem;">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+    
+    <!-- Left side: Logo + copyright -->
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 1rem;">
+      <img src="innerpitch.png" alt="Inner Pitch logo" width="28" height="28" style="vertical-align: middle;">
+      <span style="color: #eee;">© 2025 Inner Pitch | info@innerpitch.com</span>
+    </div>
+
+    <!-- Right side: Links -->
+    <div style="display: flex; gap: 1.25rem;">
+      <a href="/" style="color: #ccc; text-decoration: none;">Home</a>
+      <a href="/free-ICP.html" style="color: #ccc; text-decoration: none;">Free ICP</a>
+      <a href="/terms.html" style="color: #ccc; text-decoration: none;">Terms</a>
+      <a href="/privacy.html" style="color: #ccc; text-decoration: none;">Privacy</a>
+    </div>
+  </div>
+</footer>
+
+
+
+    </body>
+</html>
