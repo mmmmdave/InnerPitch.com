@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Try Inner Pitch Free - Psychological Buyer Intelligence</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free "Inferred Signals" ICP | Inner Pitch</title>
+  <meta name="description" content="We'll give you a glimpse into your prospects like you've never had before — plus outreach messages and sales intel for 3 of your actual prospects.">
+
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700;900&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -12,7 +18,28 @@
       box-sizing: border-box;
     }
 
-    /* Navigation */
+    :root {
+      --orange: #FF9900;
+      --yellow: #FFEE33;
+      --charcoal: #1A1A1A;
+      --light-gray: #F4F4F4;
+      --white: #FFFFFF;
+      --teal: #1DBFAF;
+    }
+
+    body {
+      font-family: 'Work Sans', sans-serif;
+      line-height: 1.6;
+      color: var(--charcoal);
+      background-color: #f8f9fa;
+      font-size: 18px;
+    }
+
+    .header-font {
+      font-family: 'Source Serif Pro', serif;
+    }
+
+    /* Navigation - Mobile Optimized */
     .navbar {
       position: fixed;
       top: 0;
@@ -33,11 +60,11 @@
     .nav-container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 80px;
+      height: 70px;
     }
 
     .logo {
@@ -49,7 +76,7 @@
     }
 
     .logo-img {
-      height: 35px;
+      height: 50px;
       width: auto;
     }
 
@@ -57,7 +84,7 @@
       color: var(--charcoal);
       text-decoration: none;
       font-weight: 500;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       transition: all 0.3s ease;
     }
 
@@ -66,30 +93,10 @@
       text-decoration: none;
     }
 
-    :root {
-      --orange: #FF9900;
-      --yellow: #FFEE33;
-      --charcoal: #1A1A1A;
-      --light-gray: #F4F4F4;
-      --white: #FFFFFF;
-      --teal: #1DBFAF;
-    }
-
-    body {
-      font-family: 'Work Sans', sans-serif;
-      line-height: 1.6;
-      color: var(--charcoal);
-      background-color: #f8f9fa;
-    }
-
-    .header-font {
-      font-family: 'Source Serif Pro', serif;
-    }
-
     /* Header Section */
     .header-section {
       background: linear-gradient(135deg, var(--white) 0%, #f8f9fa 100%);
-      padding: 120px 0 80px 0;
+      padding: 100px 0 60px 0;
       position: relative;
       overflow: hidden;
     }
@@ -113,7 +120,7 @@
     .container {
       max-width: 1000px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 1.5rem;
       position: relative;
       z-index: 2;
     }
@@ -125,14 +132,14 @@
     }
 
     .emoji {
-      font-size: 3rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
       display: block;
     }
 
     .main-headline {
       font-family: 'Source Serif Pro', serif;
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-size: 2.5rem;
       font-weight: 700;
       line-height: 1.2;
       margin-bottom: 2rem;
@@ -140,19 +147,33 @@
     }
 
     .subheadline {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 400;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
       color: #4a4a4a;
       line-height: 1.5;
     }
 
-    /* Benefits Grid */
+    /* Section Styles */
+    .section-title {
+      font-family: 'Source Serif Pro', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--charcoal);
+      line-height: 1.2;
+    }
+
+    /* Benefits Grid - Mobile First */
+    .benefits-section {
+      padding: 4rem 0;
+    }
+
     .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      display: flex;
+      flex-direction: column;
       gap: 2rem;
-      margin: 3rem 0;
     }
 
     .benefit-card {
@@ -192,28 +213,20 @@
     .benefit-desc {
       color: #666;
       line-height: 1.6;
+      font-size: 1rem;
     }
 
     /* How It Works */
     .how-it-works {
       background: white;
-      padding: 6rem 0;
-    }
-
-    .section-title {
-      font-family: 'Source Serif Pro', serif;
-      font-size: 2.5rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 4rem;
-      color: var(--charcoal);
+      padding: 5rem 0;
     }
 
     .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      display: flex;
+      flex-direction: column;
       gap: 3rem;
-      margin-bottom: 4rem;
+      margin-bottom: 3rem;
     }
 
     .step {
@@ -246,12 +259,13 @@
     .step-desc {
       color: #666;
       line-height: 1.6;
+      font-size: 1rem;
     }
 
     /* Why Free Section */
     .why-free {
       background: var(--light-gray);
-      padding: 5rem 0;
+      padding: 4rem 0;
       text-align: center;
     }
 
@@ -262,7 +276,7 @@
 
     .why-free h3 {
       font-family: 'Source Serif Pro', serif;
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin-bottom: 1.5rem;
       color: var(--charcoal);
     }
@@ -276,7 +290,7 @@
     /* Form Section */
     .form-section {
       background: white;
-      padding: 6rem 0;
+      padding: 5rem 0;
     }
 
     .form-container {
@@ -308,6 +322,7 @@
       font-weight: 500;
       margin-bottom: 0.5rem;
       color: var(--charcoal);
+      font-size: 1rem;
     }
 
     .required {
@@ -316,7 +331,7 @@
 
     input, textarea, select {
       width: 100%;
-      padding: 1rem;
+      padding: 1.2rem;
       border: 2px solid #e0e0e0;
       border-radius: 8px;
       font-size: 1rem;
@@ -332,7 +347,7 @@
     }
 
     textarea {
-      min-height: 120px;
+      min-height: 140px;
       resize: vertical;
     }
 
@@ -363,17 +378,24 @@
     }
 
     .prospect-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      display: flex;
+      flex-direction: column;
       gap: 1.5rem;
+    }
+
+    .prospect-card h4 {
+      font-family: 'Source Serif Pro', serif;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: var(--charcoal);
     }
 
     /* Submit Button */
     .submit-button {
       background: linear-gradient(135deg, var(--orange), #e68000);
       color: white;
-      padding: 1.5rem 3rem;
-      font-size: 1.2rem;
+      padding: 1.3rem 2.5rem;
+      font-size: 1.1rem;
       font-weight: 600;
       border: none;
       border-radius: 50px;
@@ -382,6 +404,8 @@
       box-shadow: 0 10px 30px rgba(255, 153, 0, 0.3);
       display: block;
       margin: 3rem auto 0 auto;
+      width: 100%;
+      max-width: 400px;
       position: relative;
       overflow: hidden;
     }
@@ -410,26 +434,147 @@
       opacity: 0.1;
     }
 
-    /* Responsive */
+    /* Mobile-specific adjustments */
     @media (max-width: 768px) {
-      .benefits-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .steps-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .prospect-grid {
-        grid-template-columns: 1fr;
-      }
-      
       .main-headline {
         font-size: 2.2rem;
       }
       
+      .subheadline {
+        font-size: 1.1rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .nav-container {
+        padding: 0 1rem;
+      }
+      
       .container {
         padding: 0 1rem;
+      }
+      
+      .header-section {
+        padding: 90px 0 50px 0;
+      }
+      
+      .emoji {
+        font-size: 2rem;
+      }
+      
+      .prospect-card {
+        padding: 1.5rem;
+      }
+      
+      .form-section-title {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* Tablet adjustments */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+      
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+      }
+      
+      .prospect-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+    }
+
+    /* Desktop */
+    @media (min-width: 1025px) {
+      .nav-container {
+        height: 90px;
+        padding: 0 2rem;
+      }
+      
+      .logo-img {
+        height: 70px;
+      }
+      
+      .nav-back {
+        font-size: 0.95rem;
+      }
+      
+      .header-section {
+        padding: 120px 0 80px 0;
+      }
+      
+      .container {
+        padding: 0 2rem;
+      }
+      
+      .main-headline {
+        font-size: clamp(2.2rem, 5vw, 3.5rem);
+      }
+      
+      .subheadline {
+        font-size: 1.3rem;
+        margin-bottom: 3rem;
+      }
+      
+      .emoji {
+        font-size: 3rem;
+      }
+      
+      .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 4rem;
+      }
+      
+      .benefits-section {
+        padding: 6rem 0;
+      }
+      
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+      
+      .how-it-works {
+        padding: 6rem 0;
+      }
+      
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 3rem;
+        margin-bottom: 4rem;
+      }
+      
+      .why-free {
+        padding: 5rem 0;
+      }
+      
+      .form-section {
+        padding: 6rem 0;
+      }
+      
+      .prospect-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+      
+      .submit-button {
+        padding: 1.5rem 3rem;
+        font-size: 1.2rem;
+        width: auto;
       }
     }
   </style>
@@ -451,10 +596,10 @@
       <div class="header-content">
         <span class="emoji">🎯</span>
         <h1 class="main-headline">
-          We don't just tell you who your buyers are — we tell you <em>how they think</em>.
+          See how Inner Pitch works and learn how your buyers think. Free. 
         </h1>
         <p class="subheadline">
-          Get a psychological Ideal Customer Profile — plus real outreach messages and sales intel for 5 of your actual prospects. <strong>Free. Yours to keep. No pressure.</strong>
+          We'll give you a glimpse into your prospects like you've never had before — plus outreach messages and sales intel for 3 of your actual prospects. <strong>Free. Yours to keep. No pressure.</strong>
         </p>
       </div>
     </div>
@@ -475,16 +620,6 @@
           <h3 class="benefit-title">Written Cold Emails</h3>
           <p class="benefit-desc">Personalized outreach messages for 5 of your real prospects that feel human and hit hard</p>
         </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">🎯</div>
-          <h3 class="benefit-title">Sales Intel & Guidance</h3>
-          <p class="benefit-desc">Talking points and approach strategies tailored to each prospect's psychological profile</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">📊</div>
-          <h3 class="benefit-title">Ready-to-Use Format</h3>
-          <p class="benefit-desc">Everything delivered in CSV or JSON format, ready to plug into your existing workflow</p>
-        </div>
       </div>
     </div>
   </section>
@@ -492,21 +627,21 @@
   <!-- How It Works -->
   <section class="how-it-works">
     <div class="container">
-      <h2 class="section-title">How It Works</h2>
+      <h2 class="section-title">How it works</h2>
       <div class="steps-grid">
         <div class="step">
           <div class="step-number">1</div>
-          <h3 class="step-title">You Fill Out the Form</h3>
-          <p class="step-desc">Share your company info and details about 5 real prospects you want to reach</p>
+          <h3 class="step-title">Share some details</h3>
+          <p class="step-desc">Provide some basic information about your company and 5 real prospects you want to reach</p>
         </div>
         <div class="step">
           <div class="step-number">2</div>
-          <h3 class="step-title">We Generate Your Materials</h3>
-          <p class="step-desc">Our AI + behavioral insight creates your psychological profiles and messaging</p>
+          <h3 class="step-title">We generate your materials</h3>
+          <p class="step-desc">We'll generate for you what we generate for paid clients</p>
         </div>
         <div class="step">
           <div class="step-number">3</div>
-          <h3 class="step-title">15-Minute Review Call</h3>
+          <h3 class="step-title">15-minute review call</h3>
           <p class="step-desc">We walk through your results together and answer any questions you have</p>
         </div>
       </div>
@@ -529,7 +664,7 @@
       <div class="form-container">
         <h2 class="section-title">Get Started</h2>
         
-        <form id="leadMagnetForm" action="#" method="POST">
+        <form id="leadMagnetForm" action="https://formspree.io/f/xkgzvyye" method="POST">
           <!-- Section 1: About You -->
           <h3 class="form-section-title">About You</h3>
           
@@ -587,14 +722,15 @@
           </div>
 
           <!-- Section 3: Prospect Info -->
-          <h3 class="form-section-title">Your 5 Prospects</h3>
-          
+          <h3 class="form-section-title">Your 3 Prospects</h3>
+          <p>This part is optional, but encouraged. We aren't asking for emails or PII. We will never share this information and never communicate with your prospects.</p>
+          <p>&nbsp;</p>          
           <div id="prospects-container">
             <!-- Prospect cards will be generated here -->
           </div>
 
           <button type="submit" class="submit-button">
-            Submit & Get My Free Pack
+            Generate my ICP
           </button>
         </form>
       </div>
@@ -616,27 +752,27 @@
     function generateProspectCards() {
       const container = document.getElementById('prospects-container');
       
-      for (let i = 1; i <= 5; i++) {
+      for (let i = 1; i <= 3; i++) {
         const prospectCard = document.createElement('div');
         prospectCard.className = 'prospect-card';
         prospectCard.innerHTML = `
           <div class="prospect-number">${i}</div>
-          <h4 style="font-family: 'Source Serif Pro', serif; font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--charcoal);">Prospect ${i}</h4>
+          <h4>Prospect ${i}</h4>
           
           <div class="prospect-grid">
             <div class="form-group">
-              <label for="prospect_${i}_name">Full Name <span class="required">*</span></label>
-              <input type="text" id="prospect_${i}_name" name="prospect_${i}_name" required>
+              <label for="prospect_${i}_name">Full Name </label>
+              <input type="text" id="prospect_${i}_name" name="prospect_${i}_name" >
             </div>
             
             <div class="form-group">
-              <label for="prospect_${i}_title">Title <span class="required">*</span></label>
-              <input type="text" id="prospect_${i}_title" name="prospect_${i}_title" required>
+              <label for="prospect_${i}_title">Title </label>
+              <input type="text" id="prospect_${i}_title" name="prospect_${i}_title" >
             </div>
             
             <div class="form-group">
-              <label for="prospect_${i}_company">Company Name <span class="required">*</span></label>
-              <input type="text" id="prospect_${i}_company" name="prospect_${i}_company" required>
+              <label for="prospect_${i}_company">Company Name </label>
+              <input type="text" id="prospect_${i}_company" name="prospect_${i}_company" >
             </div>
             
             <div class="form-group">
