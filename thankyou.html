@@ -28,6 +28,7 @@ body {
   color: var(--charcoal);
   font-size: 18px;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 h1, h2, h3 {
   font-family: 'Source Serif Pro', serif;
@@ -84,11 +85,21 @@ h1, h2, h3 {
   font-size: 1.1rem;
   color: #444;
 }
+/* Iframe container to prevent horizontal overflow */
+.iframe-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
 iframe {
   border: none;
   width: 100%;
   height: 600px;
   min-height: 500px;
+  max-width: 100%;
+  display: block;
 }
 
 /* Footer Styles */
@@ -156,9 +167,16 @@ footer a:hover {
     margin-bottom: 1.25rem;
   }
   
+  .iframe-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  
   iframe {
     height: 500px;
     min-height: 400px;
+    min-width: 320px;
   }
   
   /* Footer mobile adjustments */
@@ -224,13 +242,15 @@ footer a:hover {
 <section class="form-section">
   <div class="container">
     <div class="form-container">
-      <h2 class="section-title">We're starting on the inferred signals now!</h2>
+      <h2 class="section-title">You're All Set</h2>
       
       <p>Thanks for submitting your info — we're already getting to work analyzing your offering and ideal prospect.</p>
       <p>I'll share your personalized insights on a call. Please book a time that works for both of us using the tool below. See you then!</p>
       <p>&nbsp;</p>
       <!-- Google Calendar Appointment Scheduling begin -->
-      <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1f_F_9GYYSNHAWMF4HUhT7Nxdzh4lZPPpHdnPLWQ8KSxP8aB7qXHTi6xOF0gB69oATO9f1EPOI?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
+      <div class="iframe-container">
+        <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1f_F_9GYYSNHAWMF4HUhT7Nxdzh4lZPPpHdnPLWQ8KSxP8aB7qXHTi6xOF0gB69oATO9f1EPOI?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
+      </div>
       <!-- end Google Calendar Appointment Scheduling -->
     </div>
   </div>
