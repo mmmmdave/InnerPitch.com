@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <!-- Favicon and Apple Icons -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+       <meta charset="UTF-8">
+  <title>Inner Pitch | Hyper-Personalized B2B Sales Messaging Powered by Inferred Signals</title>
+  <meta name="description" content="Inner Pitch decodes what truly drives your prospects — their mindset, motivations, and insecurities — to craft outbound messages that actually connect. Not token-swapping. Real resonance.">
+
+        <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700;900&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --orange: #FF9900;
+    --yellow: #FFEE33;
+    --charcoal: #1A1A1A;
+    --light-gray: #F4F4F4;
+    --white: #FFFFFF;
+    --teal: #1DBFAF;
+  }
+
+  body {
+    font-family: 'Work Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--charcoal);
+    overflow-x: hidden;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+
+  .header-font {
+    font-family: 'Source Serif Pro', serif;
+  }
+
+  /* Navigation */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: all 0.3s ease;
+  }
+
+  .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 90px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--charcoal);
+  }
+
+  .logo-img {
+    height: 70px;
+    width: auto;
+  }
+
+  .nav-cta {
+    background: linear-gradient(135deg, var(--orange), #e68000);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 153, 0, 0.3);
+  }
+
+  .nav-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(255, 153, 0, 0.4);
+    color: white;
+    text-decoration: none;
+  }
+
+  /* Hero Section */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle at 30% 20%, rgba(255, 153, 0, 0.1) 0%, transparent 50%);
+    top: -25%;
+    left: -25%;
+    animation: pulse 8s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1) rotate(0deg);
+      opacity: 0.7;
+    }
+    50% {
+      transform: scale(1.1) rotate(5deg);
+      opacity: 0.4;
+    }
+  }
+
+  .hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-content {
+    max-width: 800px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    color: var(--charcoal);
+    font-family: 'Source Serif Pro', serif;
+  }
+
+  .hero .highlight {
+    background: linear-gradient(135deg, var(--orange), var(--yellow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+  }
+
+  .hero .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--orange), var(--yellow));
+    border-radius: 2px;
+    opacity: 0.6;
+  }
+
+  .hero-subtitle {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 3rem;
+    color: #4a4a4a;
+    line-height: 1.5;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--orange), #e68000);
+    color: white;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(255, 153, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, var(--yellow), transparent);
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    border-radius: 50%;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(255, 153, 0, 0.4);
+    color: white;
+    text-decoration: none;
+  }
+
+  .cta-button:hover::before {
+    width: 300px;
+    height: 300px;
+    opacity: 0.1;
+  }
+
+  /* Section Styles */
+  .section {
+    padding: 6rem 0;
+    position: relative;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--charcoal);
+    font-family: 'Source Serif Pro', serif;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .text-content h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--charcoal);
+    font-family: 'Source Serif Pro', serif;
+  }
+
+  .text-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #555;
+    line-height: 1.7;
+  }
+
+  .text-content ul {
+    list-style: none;
+    margin-bottom: 2rem;
+  }
+
+  .text-content li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #555;
+  }
+
+  .text-content li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 12px;
+    height: 12px;
+    background: linear-gradient(135deg, var(--orange), var(--yellow));
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 153, 0, 0.4);
+  }
+
+  /* Image Placeholders */
+  .image-placeholder {
+    border-radius: 20px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  }
+
+  .image-placeholder::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) scale(1);
+    }
+    50% {
+      transform: translateY(-20px) scale(1.1);
+    }
+  }
+
+  .image-placeholder span {
+    font-size: 1.1rem;
+    color: #888;
+    font-weight: 500;
+    z-index: 2;
+    position: relative;
+    text-align: center;
+    padding: 0 2rem;
+  }
+
+  .bg-alt {
+    background: var(--light-gray);
+  }
+
+  /* Stats Section */
+  .stats-section {
+    background: linear-gradient(135deg, var(--charcoal) 0%, #2a2a2a 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+  }
+
+  .stat-item {
+    padding: 2rem;
+    background: rgba(255, 153, 0, 0.1);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 153, 0, 0.2);
+    backdrop-filter: blur(10px);
+  }
+
+  .stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--yellow);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 1.1rem;
+    opacity: 0.9;
+  }
+
+  .about-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, white 100%);
+  }
+
+  .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .about-content .name {
+    color: var(--orange);
+    font-weight: 600;
+  }
+
+  .final-cta {
+    background: linear-gradient(135deg, var(--orange), #e68000);
+    color: white;
+    text-align: center;
+  }
+
+  .final-cta h2 {
+    color: white;
+    margin-bottom: 1.5rem;
+  }
+
+  .final-cta p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+  }
+
+  .cta-button-white {
+    background: white;
+    color: var(--orange);
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .cta-button-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    color: var(--orange);
+    text-decoration: none;
+  }
+
+  footer {
+    background: var(--charcoal);
+    color: white;
+    text-align: center;
+    padding: 3rem 0;
+  }
+
+/* Hide mobile version by default */
+.mobile-cta {
+  display: none;
+}
+
+/* Show mobile version and hide desktop on small screens */
+@media (max-width: 768px) {
+  .desktop-cta {
+    display: none;
+  }
+  .mobile-cta {
+    display: inline-block;
+  }
+}
+
+
+  @media (max-width: 768px) {
+    .feature-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+    }
+
+    .section {
+      padding: 4rem 0;
+    }
+  }
+</style>
+
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#" class="logo">
+      <img src="innerpitch.png" alt="Inner Pitch" class="logo-img">
+    </a>
+    <a href="free-ICP.html" class="nav-cta desktop-cta">Free: "inferred signals" ICP</a>
+    <a href="free-ICP.html" class="nav-cta mobile-cta">Free ICP</a>
+  </div>
+</nav>
+
+        
+      
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="header-font">
+          Outreach that hits where it counts — <span class="highlight">inside the mind</span>. </h1>
+                    <p class="hero-subtitle">Intent signals are so 2024. Inner Pitch creates hyper-personalized outbound marketing and sales messaging based on <strong>inferred psychological signals</strong>.</p><a href="free-ICP.html" class="cta-button">See it in action</a>
+                </div>
+            </div>
+        </section>
+        
+           <!-- Personalization is Broken Section -->
+<section class="section">
+  <div class="container" style="max-width: 800px;">
+    <h2 class="section-title header-font text-center">Fake personalization doesn't work</h2>
+    <p class="lead text-center mb-5">
+      “Hi Dave, I see you went to Syracuse and you’re the VP of Marketing.”  
+      Terrific — you did surface-level web scraping. But you didn’t actually connect.
+    </p>
+    <p>
+      Most outbound messages today rely on token-swapping: job title, alma mater, company name. It’s superficial, predictable, and totally ignorable. Prospects spot it in the preview text and delete it without hesitation.
+    </p>
+    <p>
+      You don’t win trust by inserting trivia. You win it by showing the prospect that you understand what they care about, how they see themselves, and what really drives their decisions.
+    </p>
+
+  </div>
+</section>
+
+
+        <!-- What We Do -->
+        <section class="section">
+            <div class="container">
+                <div class="feature-grid">
+                    <div class="image-placeholder"><img src="1.jpg" alt="Inner pitch" class="img-fluid rounded shadow mb-4" sv style="max-width: 100%; height: auto;" />
+                    </div>
+                    <div class="text-content">
+                        <h2 class="header-font">What we do</h2>
+                        <p>Inner Pitch decodes a prospect’s why — their mindset, motivations, insecurities, and communication style — and turns that into sales messaging that lands.</p>
+              <P>For each prospect, you get:</p>
+                        <ul>
+                  <li>Psychological lead scoring based on the prospect's specific business and personal circumstances, not general intent signals</li>
+                            <li>Cold email sequences that are 100% individualized and sound truly human</li>
+                            <li>A handover briefing so the sales conversation starts where the email left off</li>
+                            <li>Full-funnel sales strategy guidance that predicts what the prospect needs to hear at each stage</li>
+                            </li>
+                        </ul>
+                
+                    </div>
+                </div>
+            </div>
+        </section>
+       
+
+       <!-- How It Works Section -->
+<section class="section bg-lightgray">
+  <div class="container">
+    <h2 class="section-title header-font text-center">How it works</h2>
+    <div class="text-content" style="max-width: 800px; margin: 0 auto;">
+      <h3 class="header-font text-center mb-4">No subscriptions. No tools to learn. Don't share any PII.</h3>
+      <p>We are also sick of the ever-expanding marketing tech stack. So we built Inner Pitch to be dead simple.</P> 
+      <UL><LI>You export a list of prospect names, titles, LI URLs and company domains. (No email addresses or other PII accepted.)</LI>
+      <LI>We send you back a CSV or JSON file, ready to drop into your CRM or outreach tool.</LI>
+      <LI>No subscription necessary. No API connections. No PII concerns.</LI>
+      <LI>No need for marketing or sales to learn yet another platform.</LI>
+
+    </div>
+  </div>
+</section>
+
+
+
+        <!-- Why It Works -->
+        <section class="section bg-alt">
+            <div class="container">
+                <div class="feature-grid">
+                    <div class="text-content">
+                        <h2 class="header-font">Why it works</h2>
+                        <p><strong>People don’t respond based on you. They respond based on themselves — their internal motivations, identity, status, pride, fears.</strong> </P>
+                        <P>Inner Pitch works by predicting those motivations and connecting your offering to them. Here's how:</P>
+                        
+<UL><LI>First, we analyze each prospect’s inferred psychological signals — motivations, insecurities, business pressures, worldview.</LI>
+
+<li>Then we score and prioritize them: who’s worth targeting, who’s not.</LI>
+
+<LI>Then we generate messaging in a tone and style that sounds human — not templated.</LI>
+
+<LI>Then we equip Sales to pick up the conversation right where the message left off.</LI>
+</ul>                        <P>The result is marketing and sales that feels personal, sounds human, and converts better because it speaks to the person, not just the persona. That's why our emails outperform typical outbound AND why you convert better at every stage of the sales funnel.</p>
+                    </div>
+                    <div class="image-placeholder"><img src="3.png" alt="sample Inner pitch email" class="img-fluid rounded shadow mb-4" style="max-width: 100%; height: auto;" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Stats Section -->
+        <section class="section stats-section">
+            <div class="container">
+                <h2 class="section-title header-font" style="color: white;">Use Inner Pitch if your sales cycle is...</h2>
+                <div class="stats-grid">
+                    <div class="stat-item"><span class="stat-number">High-touch</span>
+                        <div class="stat-label">You sell complex or considered products</div>
+                    </div>
+                    <div class="stat-item"><span class="stat-number">Full funnel</span>
+                        <div class="stat-label">Your sales motion is outbound or ABM</div>
+                    </div>
+                    <div class="stat-item"><span class="stat-number">Targeted</span>
+                        <div class="stat-label">Your prospects have an online footprint</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+       
+<!-- About -->
+<section class="section about-section">
+  <div class="container">
+    <h2 class="section-title">Who's behind Inner Pitch?</h2>
+    <div class="feature-grid">
+      
+      <!-- Text Column -->
+      <div class="text-content">
+        <p>I’m Dave Prager. A writer, strategist and veteran marketing exec. Oh, and I'm a real human.</p>
+
+        <p>For 25 years, I’ve helped B2B companies scale and sell. I’ve built outbound and ABM programs. I've taken companies from pre-seed to Series C. I've built categories for some startups and helped other startups dominate them.</p>
+
+        <p>And here’s what I’ve learned along the way: Nobody wants to be pitched. They want to be heard. They want to be understood.</p>
+
+        <p>I learned how to do that one-on-one — in copy, in decks, in rooms with skeptical buyers. But it was never scalable.</p>
+
+        <p>So I built something that could scale it.</p>
+      </div>
+
+      <!-- Image Column -->
+
+       <div class="image-placeholder"><img src="dave.png" alt="Dave Prager portrait" class="img-fluid rounded shadow mb-4" sv style="max-height: 100%; width: auto;" />
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+        <!-- Final CTA -->
+        <section class="section final-cta">
+            <div class="container">
+                <h2 class="header-font">See it in action for your ICP</h2>
+                <p>We know it's hard to believe. So here's how to see it for yourself.</P><a href="free-ICP.html" class="cta-button-white">
+        Get an inferred psychological ICP — free! </a>
+            </div>
+        </section>
+        
+        <!-- FAQ Section -->
+<section class="section bg-alt">
+  <div class="container">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+
+    <div class="faq">
+      <details>
+        <summary>This costs more than other AI tools. Why?</summary>
+        <p>Yes — AI tools cost less per outbound email. But if your reply rate doubles and your SQL conversion triples, the ROI is clear — even at 2–3x the cost per prospect.</p>
+      </details>
+
+      <details>
+        <summary>Can’t my team or ChatGPT just do this?</summary>
+        <p>Yes — if they have time to research every prospect, know how to infer psychology from limited signals, and can write 1:1 messaging that converts. Even if they can, that approach doesn’t scale.</p>
+      </details>
+
+      <details>
+        <summary>How do I know it works?</summary>
+        <p>Start with a test. Give us 500–1000 prospects, and we’ll measure reply and meeting rates side-by-side with your current messaging. You'll see the difference.</p>
+      </details>
+
+      <details>
+        <summary>Is this compliant and privacy-safe?</summary>
+        <p>Yes. We only use public data — name, title, LinkedIn profile, and company domain. No email addresses or PII are required, collected, or stored.</p>
+      </details>
+
+      <details>
+        <summary>Why not just use Lavender or Clay with personalization variables?</summary>
+        <p>Those tools insert facts. We craft messages that resonate. It's not about job titles and trivia — it's about understanding what drives a person and writing to their psychology.</p>
+      </details>
+
+      <details>
+        <summary>What’s the turnaround time?</summary>
+        <p>For most lists, you’ll get your results in 48–72 hours. Need it faster? We can usually accommodate rush requests.</p>
+      </details>
+
+      <details>
+        <summary>Do I have to change my whole sales motion?</summary>
+        <p>No. You keep your stack, your CRM, and your workflows. We just drop personalized, high-performance messaging right into it.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq details {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .faq details:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  }
+
+  .faq summary {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    outline: none;
+    list-style: none;
+  }
+
+  .faq summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq p {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+</style>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 Inner Pitch. Contact info@innerpitch.com for details.</p>
+            </div>
+        </footer>
+        <script>
+    // Add scroll effect to navbar
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  </script>
+    </body>
+</html>
