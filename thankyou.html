@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="robots" content="noindex, nofollow">
+
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book your ICP meeting | Inner Pitch</title>
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700;900&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --orange: #FF9900;
+      --yellow: #FFEE33;
+      --charcoal: #1A1A1A;
+      --light-gray: #F4F4F4;
+      --white: #FFFFFF;
+      --teal: #1DBFAF;
+    }
+
+    body {
+      font-family: 'Work Sans', sans-serif;
+      line-height: 1.6;
+      color: var(--charcoal);
+      background-color: #f8f9fa;
+      font-size: 18px;
+    }
+
+    .header-font {
+      font-family: 'Source Serif Pro', serif;
+    }
+
+    /* Navigation - Mobile Optimized */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--charcoal);
+    }
+
+    .logo-img {
+      height: 50px;
+      width: auto;
+    }
+
+    .nav-back {
+      color: var(--charcoal);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .nav-back:hover {
+      color: var(--orange);
+      text-decoration: none;
+    }
+
+    /* Header Section */
+    .header-section {
+      background: linear-gradient(135deg, var(--white) 0%, #f8f9fa 100%);
+      padding: 100px 0 60px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-section::before {
+      content: '';
+      position: absolute;
+      width: 150%;
+      height: 150%;
+      background: radial-gradient(circle at 70% 30%, rgba(255, 153, 0, 0.08) 0%, transparent 50%);
+      top: -25%;
+      left: -25%;
+      animation: pulse 10s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+      50% { transform: scale(1.1) rotate(3deg); opacity: 0.3; }
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .header-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .emoji {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .main-headline {
+      font-family: 'Source Serif Pro', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+      color: var(--charcoal);
+    }
+
+    .subheadline {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 2.5rem;
+      color: #4a4a4a;
+      line-height: 1.5;
+    }
+
+    /* Section Styles */
+    .section-title {
+      font-family: 'Source Serif Pro', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--charcoal);
+      line-height: 1.2;
+    }
+
+    /* Benefits Grid - Mobile First */
+    .benefits-section {
+      padding: 4rem 0;
+    }
+
+    .benefits-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .benefit-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(255, 153, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .benefit-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--orange), var(--yellow));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    .benefit-title {
+      font-family: 'Source Serif Pro', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--charcoal);
+    }
+
+    .benefit-desc {
+      color: #666;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    /* How It Works */
+    .how-it-works {
+      background: white;
+      padding: 5rem 0;
+    }
+
+    .steps-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--orange), var(--yellow));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: white;
+      margin: 0 auto 2rem auto;
+    }
+
+    .step-title {
+      font-family: 'Source Serif Pro', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--charcoal);
+    }
+
+    .step-desc {
+      color: #666;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    /* Why Free Section */
+    .why-free {
+      background: var(--light-gray);
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .why-free-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .why-free h3 {
+      font-family: 'Source Serif Pro', serif;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--charcoal);
+    }
+
+    .why-free p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    /* Form Section */
+    .form-section {
+      background: white;
+      padding: 5rem 0;
+    }
+
+    .form-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 2rem;
+    }
+
+    .form-section-title {
+      font-family: 'Source Serif Pro', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 3rem 0 1.5rem 0;
+      color: var(--charcoal);
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--orange);
+      display: inline-block;
+    }
+
+    .form-section-title:first-of-type {
+      margin-top: 0;
+    }
+
+    label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--charcoal);
+      font-size: 1rem;
+    }
+
+    .required {
+      color: var(--orange);
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 1.2rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: 'Work Sans', sans-serif;
+      transition: border-color 0.3s ease;
+      background: white;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.1);
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    /* Prospect Cards */
+    .prospect-card {
+      background: #f8f9fa;
+      border: 2px solid #e9ecef;
+      border-radius: 15px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .prospect-number {
+      position: absolute;
+      top: -15px;
+      left: 20px;
+      background: linear-gradient(135deg, var(--orange), var(--yellow));
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .prospect-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .prospect-card h4 {
+      font-family: 'Source Serif Pro', serif;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: var(--charcoal);
+    }
+
+    /* Submit Button */
+    .submit-button {
+      background: linear-gradient(135deg, var(--orange), #e68000);
+      color: white;
+      padding: 1.3rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(255, 153, 0, 0.3);
+      display: block;
+      margin: 3rem auto 0 auto;
+      width: 100%;
+      max-width: 400px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .submit-button::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: radial-gradient(circle, var(--yellow), transparent);
+      transform: translate(-50%, -50%);
+      transition: all 0.3s ease;
+      border-radius: 50%;
+    }
+
+    .submit-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 40px rgba(255, 153, 0, 0.4);
+    }
+
+    .submit-button:hover::before {
+      width: 300px;
+      height: 300px;
+      opacity: 0.1;
+    }
+
+    /* Mobile-specific adjustments */
+    @media (max-width: 768px) {
+      .main-headline {
+        font-size: 2.2rem;
+      }
+      
+      .subheadline {
+        font-size: 1.1rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .nav-container {
+        padding: 0 1rem;
+      }
+      
+      .container {
+        padding: 0 1rem;
+      }
+      
+      .header-section {
+        padding: 90px 0 50px 0;
+      }
+      
+      .emoji {
+        font-size: 2rem;
+      }
+      
+      .prospect-card {
+        padding: 1.5rem;
+      }
+      
+      .form-section-title {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* Tablet adjustments */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+      
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+      }
+      
+      .prospect-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+    }
+
+    /* Desktop */
+    @media (min-width: 1025px) {
+      .nav-container {
+        height: 90px;
+        padding: 0 2rem;
+      }
+      
+      .logo-img {
+        height: 70px;
+      }
+      
+      .nav-back {
+        font-size: 0.95rem;
+      }
+      
+      .header-section {
+        padding: 120px 0 80px 0;
+      }
+      
+      .container {
+        padding: 0 2rem;
+      }
+      
+      .main-headline {
+        font-size: clamp(2.2rem, 5vw, 3.5rem);
+      }
+      
+      .subheadline {
+        font-size: 1.3rem;
+        margin-bottom: 3rem;
+      }
+      
+      .emoji {
+        font-size: 3rem;
+      }
+      
+      .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 4rem;
+      }
+      
+      .benefits-section {
+        padding: 6rem 0;
+      }
+      
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+      
+      .how-it-works {
+        padding: 6rem 0;
+      }
+      
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 3rem;
+        margin-bottom: 4rem;
+      }
+      
+      .why-free {
+        padding: 5rem 0;
+      }
+      
+      .form-section {
+        padding: 6rem 0;
+      }
+      
+      .prospect-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+      
+      .submit-button {
+        padding: 1.5rem 3rem;
+        font-size: 1.2rem;
+        width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="innerpitch.png" alt="Inner Pitch" class="logo-img">
+      </a>
+      <a href="index.html" class="nav-back">← Back to Home</a>
+    </div>
+  </nav>
+
+ <!-- Thank You Page -->
+<section class="form-section">
+  <div class="container">
+    <div class="form-container">
+      <h2 class="section-title">You're All Set</h2>
+      
+      <p>Thanks for submitting your info — we’re already getting to work analyzing your offering and ideal prospect.</p>
+
+      <p>I'll share your personalized insights on a call. Please book a time that works for both of us using the tool below. See you then!</p>
+
+      <p>&nbsp;</p>
+
+      <!-- Google Calendar Appointment Scheduling begin -->
+      <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1f_F_9GYYSNHAWMF4HUhT7Nxdzh4lZPPpHdnPLWQ8KSxP8aB7qXHTi6xOF0gB69oATO9f1EPOI?gv=true" style="border: 0" width="100%" height="600" frameborder="0"></iframe>
+      <!-- end Google Calendar Appointment Scheduling -->
+    </div>
+  </div>
+</section>
+
+
+ 
+
+       <footer style="background-color: #111; color: #ccc; padding: 2rem 0; font-size: 0.9rem;">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+    
+    <!-- Left side: Logo + copyright -->
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 1rem;">
+    <img src="favicon-32x32.png" alt="Inner Pitch logo" width="28" height="28" style="vertical-align: middle;">
+      <span style="color: #eee;">© 2025 Inner Pitch | info@innerpitch.com</span>
+    </div>
+
+    <!-- Right side: Links -->
+    <div style="display: flex; gap: 1.25rem;">
+      <a href="/" style="color: #ccc; text-decoration: none;">Home</a>
+      <a href="/free-ICP.html" style="color: #ccc; text-decoration: none;">Free ICP</a>
+      <a href="/terms.html" style="color: #ccc; text-decoration: none;">Terms</a>
+      <a href="/privacy.html" style="color: #ccc; text-decoration: none;">Privacy</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
