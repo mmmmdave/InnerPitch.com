@@ -162,12 +162,14 @@
   }
 
   .hero .highlight {
-              background: linear-gradient(135deg, var(--orange), var(#ffc30e));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    position: relative;
-  }
+  background: linear-gradient(135deg, var(--orange), #ffc30e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* add this for non-WebKit browsers */
+  position: relative;
+}
+
 
   .hero .highlight::after {
     content: '';
