@@ -599,14 +599,15 @@
   </div>
 </nav>
 
-       <!-- Hero Section (New Split Layout) -->
-<section class="hero" style="background: var(--charcoal); color: var(--white);">
-  <div class="hero-container" style="display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 3rem;">
-    
+    <!-- Hero Section (Hidden on Mobile) -->
+<section class="hero desktop-only" style="background: var(--charcoal); color: var(--white);">
+  <div class="hero-container" 
+       style="display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 3rem; padding: 100px 2rem;">
+
     <!-- Left: Image -->
     <div class="hero-image" style="position: relative;">
       <img src="innerpitch-head.png" alt="Inner Pitch Head" 
-           style="width: 100%; max-width: 550px;">
+           style="width: 100%; max-width: 450px; height: auto; display: block; margin: 0 auto;">
       <div style="position: absolute; top: -40px; left: -60px; 
                   width: 200px; height: 200px; border-radius: 50%; 
                   background: radial-gradient(circle, rgba(255,153,0,0.15), transparent 70%);
@@ -614,20 +615,20 @@
     </div>
 
     <!-- Right: Text -->
-    <div class="hero-content">
-      <h1 class="header-font" style="font-size: 3.2rem; line-height: 1.2; color:white; margin-bottom: 1.5rem;">
+    <div class="hero-content" style="max-width: 520px;">
+      <h1 class="header-font" style="font-size: 3rem; line-height: 1.2; color:white; margin-bottom: 1.5rem;">
         Start your sales process from 
         <span class="highlight">inside your prospect’s head.</span>
       </h1>
 
-      <p class="hero-subtitle" style="color: rgba(255,255,255,0.85); max-width: 500px;">
+      <p class="hero-subtitle" style="color: rgba(255,255,255,0.85); max-width: 480px;">
         Inner Pitch decodes what drives each one of your prospects — their needs, motivations, and worldview — 
         and turns that into outreach that actually converts.
       </p>
 
       <a href="free-personalization-package.html" class="cta-button" 
          style="background: linear-gradient(135deg, var(--orange), #e68000); color: white;">
-        Let's land your top prospect — free  →
+        Let's land your top prospect — free →
       </a>
 
       <p style="margin-top: 1rem; font-size: 1rem; color: rgba(255,255,255,0.7);">
