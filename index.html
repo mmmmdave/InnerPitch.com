@@ -63,11 +63,10 @@
     background: rgba(255, 255, 255, 0.98);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   }
-/* Hide the head image on tablets and below (≤ 1024px) */
 /* Hide the head image AND button on tablets and below (≤ 1024px) */
 @media (max-width: 1024px) {
   .hero-image,
-  .cta-button.desktop-only {
+  .nav-cta {
     display: none !important;
   }
 
@@ -89,6 +88,8 @@
     font-size: 1.15rem !important;
   }
 }
+
+
 
 
   .nav-container {
@@ -625,12 +626,12 @@
     <a href="free-personalization-package.html" class="nav-cta">Land your top prospect. Free.</a>
   </div>
 </nav>
-<!-- Hero Section (Hide Head & Button on Tablet & Below) -->
+<!-- Hero Section (Hide Head on Mobile) -->
 <section class="hero" style="background: var(--charcoal); color: var(--white);">
   <div class="hero-container" 
        style="display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 3rem; padding: 100px 2rem;">
     
-    <!-- Left: Head Image -->
+    <!-- Left: Image -->
     <div class="hero-image desktop-only" style="position: relative;">
       <img src="innerpitch-head.png" alt="Inner Pitch Head" 
            style="width: 100%; max-width: 450px; height: auto; display: block; margin: 0 auto;">
@@ -652,7 +653,7 @@
         and turns that into outreach that actually converts.
       </p>
 
-      <a href="free-personalization-package.html" class="cta-button desktop-only" 
+      <a href="free-personalization-package.html" class="cta-button" 
          style="background: linear-gradient(135deg, var(--orange), #e68000); color: white;">
         Let's land your top prospect — free →
       </a>
@@ -664,7 +665,6 @@
 
   </div>
 </section>
-
 
         
            <!-- Personalization is Broken Section -->
