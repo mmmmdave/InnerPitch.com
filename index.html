@@ -64,8 +64,10 @@
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   }
 /* Hide the head image on tablets and below (≤ 1024px) */
+/* Hide the head image AND button on tablets and below (≤ 1024px) */
 @media (max-width: 1024px) {
-  .hero-image {
+  .hero-image,
+  .cta-button.desktop-only {
     display: none !important;
   }
 
@@ -87,6 +89,7 @@
     font-size: 1.15rem !important;
   }
 }
+
 
   .nav-container {
     max-width: 1200px;
@@ -622,7 +625,7 @@
     <a href="free-personalization-package.html" class="nav-cta">Land your top prospect. Free.</a>
   </div>
 </nav>
-<!-- Hero Section (Hide Head on Tablet & Below) -->
+<!-- Hero Section (Hide Head & Button on Tablet & Below) -->
 <section class="hero" style="background: var(--charcoal); color: var(--white);">
   <div class="hero-container" 
        style="display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 3rem; padding: 100px 2rem;">
@@ -649,9 +652,9 @@
         and turns that into outreach that actually converts.
       </p>
 
-      <a href="free-personalization-package.html" class="cta-button" 
+      <a href="free-personalization-package.html" class="cta-button desktop-only" 
          style="background: linear-gradient(135deg, var(--orange), #e68000); color: white;">
-        Let's land your top prospect. Free.
+        Let's land your top prospect — free →
       </a>
 
       <p style="margin-top: 1rem; font-size: 1rem; color: rgba(255,255,255,0.7);">
@@ -661,6 +664,7 @@
 
   </div>
 </section>
+
 
         
            <!-- Personalization is Broken Section -->
