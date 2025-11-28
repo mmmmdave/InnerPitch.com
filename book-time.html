@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+         <link rel="canonical" href="https://innerpitch.com/">
+        <meta name="robots" content="index,follow">
+    <!-- Favicon and Apple Icons -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inner Pitch | Hyper-Personalized B2B Messaging for Full Funnel Conversion Improvement</title>
+  <meta name="description" content="Inner Pitch decodes what truly drives your prospects — their mindset, motivations, and insecurities — so you can craft sales and marketing that actually converts.">
+
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --charcoal: #1a1a1a;
+            --white: #ffffff;
+            --orange: #ff9900;
+            --yellow: #ffee33;
+            --gray-text: #cccccc;
+            --transition-speed: 0.5s; 
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Work Sans', sans-serif;
+            background-color: var(--charcoal);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Source Serif Pro', serif;
+            font-weight: 700;
+        }
+
+        p, li {
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: var(--gray-text);
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, var(--orange), var(--yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        /* --- SCROLL LAYOUT --- */
+
+        .hero-section {
+            position: relative;
+            background-color: #1a1a1a; /* Explicit Charcoal Background */
+            padding-bottom: 0; /* Remove padding here, handle in scrolling-content */
+        }
+
+        /* Subtle Orange Glow - GRADIENT REMOVED */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            width: 100%; /* Limit to width */
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+            /* Optional: Animation */
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2; /* Content above glow */
+        }
+
+        /* Desktop Layout: Split Screen */
+        @media (min-width: 900px) {
+            .split-layout {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 5rem;
+                align-items: start;
+            }
+
+            .sticky-image-wrapper {
+                position: sticky;
+                top: 0;
+                height: 100vh; 
+                width: 100%;
+                display: flex;
+                align-items: center; /* Vertical Center */
+                justify-content: center;
+            }
+
+            /* Increased specificity to override .step-wrapper img */
+            .step-wrapper .mobile-only-img {
+                display: none;
+            }
+            
+            .step-wrapper .desktop-only-img {
+                display: block;
+            }
+
+            /* Desktop Aspect Ratio: 768 / 1056 */
+            .image-stack {
+                width: 100%;
+                aspect-ratio: 768 / 1056; 
+                max-width: 500px; /* Cap width so it doesn't get too huge vertically */
+            }
+
+            .text-block {
+                min-height: 100vh; 
+            }
+        }
+
+        /* Mobile Layout: Sticky Header Style */
+        @media (max-width: 899px) {
+            .container {
+                padding: 0 1rem; /* Smaller padding on mobile */
+            }
+
+            .split-layout {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .sticky-image-wrapper {
+                /* Enable Sticky on Mobile */
+                display: flex; 
+                position: sticky;
+                top: 0; 
+                height: 17vh; /* Upper 1/4th to 1/5th of screen */
+                width: 100vw; /* Full width */
+                margin-left: -1rem; /* Offset container padding to be full width */
+                padding: 2.7rem 0;
+                
+                /* Replaced solid color with gradient fade for gentle cutoff */
+                background: linear-gradient(to bottom, var(--charcoal) 85%, rgba(26,26,26,0)); 
+                
+                align-items: center;
+                justify-content: center;
+                z-index: 50; /* High Z-Index to stay ON TOP of text */
+                border-bottom: none; /* Removed hard border */
+            }
+
+            /* Increased specificity to override .step-wrapper img */
+            .step-wrapper .mobile-only-img {
+                display: block;
+            }
+
+            .step-wrapper .desktop-only-img {
+                display: none;
+            }
+
+            /* Mobile Image Handling */
+            .image-stack {
+                height: 100%;
+                width: 100%; /* Fixed: Set to 100% width to prevent collapse */
+                max-width: 100%;
+                aspect-ratio: auto; 
+            }
+            
+            .step-wrapper img {
+                object-fit: contain;
+                object-position: center;
+            }
+
+            /* Adjust Text for Mobile Readability */
+            .scrolling-content {
+                position: relative;
+                z-index: 1; /* Scroll BEHIND the image */
+                margin-top: 1rem; 
+                padding-bottom: 20vh;
+            }
+
+            .text-block {
+                min-height: auto;
+                /* Standard layout, no overlap tricks needed */
+                padding-bottom: 2rem; 
+                padding-top: 2rem;
+                margin-bottom: 2rem;
+                
+                /* Reset background/border from previous iteration */
+                background: none;
+                border: none;
+                backdrop-filter: none;
+                opacity: 0.3;
+            }
+            
+            .text-block.active-block {
+                opacity: 1;
+            }
+
+            /* Spacer for the first block not needed as much now, but good for breathing room */
+            .text-block:first-child {
+                margin-top: 1rem; 
+            }
+            
+            h1 {
+                font-size: 2.5rem !important; /* Smaller H1 for mobile */
+            }
+        }
+
+        /* Image Stack Logic */
+        .image-stack {
+            position: relative;
+            /* Aspect ratio handled in media queries */
+        }
+
+        .step-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity var(--transition-speed) ease-in-out;
+        }
+
+        .step-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+            display: block;
+        }
+
+        /* Show/Hide Logic is in Media Queries */
+        
+        .step-wrapper.active-step {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        /* Text Content Styling */
+        .scrolling-content {
+            /* Large bottom padding removed so scroll stops at form */
+            padding-bottom: 10vh; 
+        }
+
+        .text-block {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0.3; /* Lower inactive opacity */
+            transition: opacity 0.5s ease;
+        }
+
+        .text-block.active-block {
+            opacity: 1;
+        }
+
+        .text-block h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.2rem;
+            color: var(--white);
+        }
+        
+        /* Final CTA Block */
+        .final-cta-block {
+            min-height: 60vh;
+            opacity: 1 !important;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--orange), #e68000);
+            color: white;
+            padding: 1.3rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 153, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            width: fit-content;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+             box-shadow: 0 15px 40px rgba(255, 153, 0, 0.4);
+        }
+
+        /* --- MODERN FORM STYLING --- */
+        .form-section {
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-container label {
+            display: block;
+            color: var(--white);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-container input,
+        .form-container textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: var(--white);
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-sizing: border-box; /* Ensures padding doesn't break width */
+        }
+
+        .form-container input:focus,
+        .form-container textarea:focus {
+            outline: none;
+            border-color: var(--orange);
+            background: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 10px rgba(255, 153, 0, 0.2);
+        }
+
+        .form-container textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-container button[type="submit"] {
+            background: linear-gradient(135deg, var(--orange), #e68000);
+            color: white;
+            border: none;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-container button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 153, 0, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Scroll Section -->
+    <section class="hero-section" id="heroTrigger">
+        <div class="container split-layout">
+            
+            <!-- Sticky Images -->
+            <div class="sticky-image-wrapper">
+                <div class="image-stack" id="imageStack">
+                    
+                    <!-- Step 1 -->
+                    <div class="step-wrapper active-step">
+                        <img src="step-1.png" class="desktop-only-img" alt="Step 1">
+                        <img src="mobile-step-1.png" class="mobile-only-img" alt="Step 1">
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step-wrapper">
+                        <img src="step-2.png" class="desktop-only-img" alt="Step 2">
+                        <img src="mobile-step-2.png" class="mobile-only-img" alt="Step 2">
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="step-wrapper">
+                        <img src="step-3.png" class="desktop-only-img" alt="Step 3">
+                        <img src="mobile-step-3.png" class="mobile-only-img" alt="Step 3">
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="step-wrapper">
+                        <img src="step-4.png" class="desktop-only-img" alt="Step 4">
+                        <img src="mobile-step-4.png" class="mobile-only-img" alt="Step 4">
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="step-wrapper">
+                        <img src="step-5.png" class="desktop-only-img" alt="Step 5">
+                        <img src="mobile-step-5.png" class="mobile-only-img" alt="Step 5">
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="step-wrapper">
+                        <img src="step-6.png" class="desktop-only-img" alt="Step 6">
+                        <img src="mobile-step-6.png" class="mobile-only-img" alt="Step 6">
+                    </div>
+
+                    <!-- Step 7 -->
+                    <div class="step-wrapper">
+                        <img src="step-9.png" class="desktop-only-img" alt="Step 7">
+                        <img src="mobile-step-9.png" class="mobile-only-img" alt="Step 7">
+                    </div>
+
+                    <!-- Step 8 -->
+                    <div class="step-wrapper">
+                        <img src="step-9.png" class="desktop-only-img" alt="Step 8">
+                        <img src="mobile-step-9.png" class="mobile-only-img" alt="Step 8">
+                    </div>
+                    
+                      <!-- Step 9 -->
+                    <div class="step-wrapper">
+                        <img src="step-9.png" class="desktop-only-img" alt="Step 9">
+                        <img src="mobile-step-9.png" class="mobile-only-img" alt="Step 9">
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Right Column: Scrolling Text -->
+            <div class="scrolling-content" id="textContent">
+<!-- Block 1 -->
+<div class="text-block active-block">
+    <h1 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 2rem; font-family: 'Source Serif Pro', serif;">
+        Let's talk about selling <span class="highlight">from inside your prospect's head.</span>
+    </h1>
+    <p style="font-size: 1.3rem;">
+One last step: Book some time for us to meet.</p>
+    
+         <iframe src="https://scheduler.zoom.us/dave-prager-np1j35/inner-pitch-v4um78i1?embed=true" frameborder="0" style="width: 750px; height: 560px;"></iframe>
+
+    
+</div>
+</div>
+
+
+            </div>
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const steps = document.querySelectorAll('.step-wrapper');
+            const textBlocks = document.querySelectorAll('.text-block');
+            
+            function handleScroll() {
+                // Determine the "trigger point" (e.g., 40% down the screen)
+                const triggerPoint = window.innerHeight * 0.4;
+                
+                let activeIndex = 0;
+
+                // Loop through all text blocks
+                textBlocks.forEach((block, index) => {
+                    const rect = block.getBoundingClientRect();
+                    // If the top of this block is ABOVE the trigger point, it's a candidate for active.
+                    // Since we loop in order, the last block that satisfies this is the current one.
+                    if (rect.top < triggerPoint) {
+                        activeIndex = index;
+                    }
+                });
+
+                setActiveState(activeIndex);
+            }
+
+            function setActiveState(index) {
+                // Update Step Wrappers (Images)
+                steps.forEach((step, i) => {
+                    if (i === index) {
+                        step.classList.add('active-step');
+                    } else {
+                        step.classList.remove('active-step');
+                    }
+                });
+
+                // Update Text Opacity (Focus Effect)
+                textBlocks.forEach((block, i) => {
+                    if (i === index) {
+                        block.classList.add('active-block');
+                    } else {
+                        block.classList.remove('active-block');
+                    }
+                });
+            }
+
+            // Init
+            window.addEventListener('resize', handleScroll);
+            window.addEventListener('scroll', handleScroll);
+            
+            // Run once
+            handleScroll();
+        });
+    </script>
+
+</body>
+</html>
