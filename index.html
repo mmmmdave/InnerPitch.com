@@ -138,7 +138,14 @@
 
         /* Mobile Layout: Sticky Header Style */
     
+<style>
+/* Replace the entire mobile media query section with this: */
+
 @media (max-width: 899px) {
+    body {
+        overflow-x: hidden; /* ADDED: Prevent horizontal scroll on body */
+    }
+
     .container {
         padding: 0 1rem;
     }
@@ -153,15 +160,16 @@
         position: sticky;
         top: 0; 
         height: 17vh;
-        width: 100vw;
-        margin-left: calc(-50vw + 50%); /* FIXED: Centers full-width element */
-        padding: 2.7rem 0;
+        width: 100%; /* CHANGED: Use 100% instead of 100vw */
+        max-width: 100%; /* ADDED: Ensure it doesn't exceed parent */
+        margin-left: -1rem; /* Back to simple offset */
+        margin-right: -1rem; /* ADDED: Offset right padding too */
+        padding: 2.7rem 1rem; /* CHANGED: Add horizontal padding back */
         background: linear-gradient(to bottom, var(--charcoal) 85%, rgba(26,26,26,0)); 
         align-items: center;
         justify-content: center;
         z-index: 50;
         border-bottom: none;
-        overflow: hidden; /* ADDED: Prevents any overflow */
     }
 
             /* Increased specificity to override .step-wrapper img */
