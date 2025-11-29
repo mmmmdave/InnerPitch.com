@@ -137,34 +137,32 @@
         }
 
         /* Mobile Layout: Sticky Header Style */
-        @media (max-width: 899px) {
-            .container {
-                padding: 0 1rem; /* Smaller padding on mobile */
-            }
+    
+@media (max-width: 899px) {
+    .container {
+        padding: 0 1rem;
+    }
 
-            .split-layout {
-                display: flex;
-                flex-direction: column;
-            }
+    .split-layout {
+        display: flex;
+        flex-direction: column;
+    }
 
-            .sticky-image-wrapper {
-                /* Enable Sticky on Mobile */
-                display: flex; 
-                position: sticky;
-                top: 0; 
-                height: 17vh; /* Upper 1/4th to 1/5th of screen */
-                width: 100vw; /* Full width */
-                margin-left: -1rem; /* Offset container padding to be full width */
-                padding: 2.7rem 0;
-                
-                /* Replaced solid color with gradient fade for gentle cutoff */
-                background: linear-gradient(to bottom, var(--charcoal) 85%, rgba(26,26,26,0)); 
-                
-                align-items: center;
-                justify-content: center;
-                z-index: 50; /* High Z-Index to stay ON TOP of text */
-                border-bottom: none; /* Removed hard border */
-            }
+    .sticky-image-wrapper {
+        display: flex; 
+        position: sticky;
+        top: 0; 
+        height: 17vh;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%); /* FIXED: Centers full-width element */
+        padding: 2.7rem 0;
+        background: linear-gradient(to bottom, var(--charcoal) 85%, rgba(26,26,26,0)); 
+        align-items: center;
+        justify-content: center;
+        z-index: 50;
+        border-bottom: none;
+        overflow: hidden; /* ADDED: Prevents any overflow */
+    }
 
             /* Increased specificity to override .step-wrapper img */
             .step-wrapper .mobile-only-img {
