@@ -26,25 +26,18 @@
             --gray-text: #cccccc;
             --transition-speed: 0.5s; 
         }
-* {
-    box-sizing: border-box;
-}
+
         html {
             scroll-behavior: smooth;
-            width: 100%;
-    overflow-x: hidden; /* Crucial for mobile */
         }
 
         body {
-           margin: 0;
-    padding: 0;
-    width: 100%;
-    max-width: 100%; /* Ensures body never exceeds viewport */
-    overflow-x: hidden; /* Redundant but safe */
-    font-family: 'Work Sans', sans-serif;
-    background-color: var(--charcoal);
-    color: var(--white);
-    position: relative;
+            margin: 0;
+            padding: 0;
+            font-family: 'Work Sans', sans-serif;
+            background-color: var(--charcoal);
+            color: var(--white);
+            overflow-x: hidden;
         }
 
         /* Typography */
@@ -144,37 +137,33 @@
         }
 
         /* Mobile Layout: Sticky Header Style */
-    
-@media (max-width: 899px) {
-    .container {
-        padding: 0 1rem;
-    }
+        @media (max-width: 899px) {
+            .container {
+                padding: 0 1rem; /* Smaller padding on mobile */
+            }
 
-    .split-layout {
-        display: flex;
-        flex-direction: column;
-    }
-
+            .split-layout {
+                display: flex;
+                flex-direction: column;
+            }
 .sticky-image-wrapper {
-    display: flex; 
-    position: sticky;
-    top: 0; 
-    height: 17vh;
-    
-    /* UPDATED CENTERING HACK */
-    width: 100vw;
-    left: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    
-    padding: 2.7rem 0;
-    background: linear-gradient(to bottom, var(--charcoal) 85%, rgba(26,26,26,0)); 
-    align-items: center;
-    justify-content: center;
-    z-index: 50;
-    border-bottom: none;
-    overflow: hidden;
-}
+        display: flex; 
+        position: sticky;
+        top: 0; 
+        height: 17vh;
+        
+        /* THE FIX: Use percentage relative to container padding (1rem), not Viewport Width */
+        width: calc(100% + 2rem); 
+        margin-left: -1rem;
+        margin-right: -1rem;
+        
+        padding: 2.7rem 0;
+        background: linear-gradient(to bottom, var(--charcoal) 85%, rgba(26,26,26,0)); 
+        align-items: center;
+        justify-content: center;
+        z-index: 50;
+        border-bottom: none;
+    }
 
             /* Increased specificity to override .step-wrapper img */
             .step-wrapper .mobile-only-img {
