@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-         <link rel="canonical" href="https://innerpitch.com/">
-        <meta name="robots" content="index,follow">
-    <!-- Favicon and Apple Icons -->
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="canonical" href="https://innerpitch.com/">
+    <meta name="robots" content="index,follow">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-       <meta charset="UTF-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inner Pitch | Done-for-you prospect intelligence & human-centric outbound</title>
-  <meta name="description" content="A boutique service that transforms basic lead info into high-precision prospect dossiers and outbound messaging. No tools to learn. No integrations. Just deeper conversations and higher conversions.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Inner Pitch | Done-for-you prospect intelligence & human-centric outbound</title>
+    <meta name="description" content="A boutique, done-for-you service that transforms basic lead info into high-precision prospect dossiers and outbound messaging. No tools to learn. No integrations. Just deeper conversations and higher conversions.">
 
-
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
@@ -29,6 +26,8 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden; /* FIXED: Prevents horizontal scroll on root */
+            width: 100%;
         }
 
         body {
@@ -37,7 +36,9 @@
             font-family: 'Work Sans', sans-serif;
             background-color: var(--charcoal);
             color: var(--white);
-            overflow-x: hidden;
+            overflow-x: hidden; /* FIXED: Double protection */
+            width: 100%;
+            position: relative;
         }
 
         /* Typography */
@@ -65,21 +66,22 @@
 
         .hero-section {
             position: relative;
-            background-color: #1a1a1a; /* Explicit Charcoal Background */
-            padding-bottom: 0; /* Remove padding here, handle in scrolling-content */
+            background-color: #1a1a1a;
+            padding-bottom: 0;
+            /* FIXED: This clips the pulsing animation so it doesn't overflow */
+            overflow: hidden; 
+            width: 100%;
         }
 
-        /* Subtle Orange Glow - GRADIENT REMOVED */
         .hero-section::before {
             content: '';
             position: absolute;
-            width: 100%; /* Limit to width */
+            width: 100%; 
             height: 100%;
             top: 0;
             left: 0;
             pointer-events: none;
             z-index: 1;
-            /* Optional: Animation */
             animation: pulse 8s ease-in-out infinite;
         }
 
@@ -93,7 +95,7 @@
             margin: 0 auto;
             padding: 0 2rem;
             position: relative;
-            z-index: 2; /* Content above glow */
+            z-index: 2; 
         }
 
         /* Desktop Layout: Split Screen */
@@ -111,11 +113,10 @@
                 height: 100vh; 
                 width: 100%;
                 display: flex;
-                align-items: center; /* Vertical Center */
+                align-items: center; 
                 justify-content: center;
             }
 
-            /* Increased specificity to override .step-wrapper img */
             .step-wrapper .mobile-only-img {
                 display: none;
             }
@@ -124,11 +125,10 @@
                 display: block;
             }
 
-            /* Desktop Aspect Ratio: 768 / 1056 */
             .image-stack {
                 width: 100%;
                 aspect-ratio: 768 / 1056; 
-                max-width: 500px; /* Cap width so it doesn't get too huge vertically */
+                max-width: 500px; 
             }
 
             .text-block {
@@ -137,34 +137,33 @@
         }
 
         /* Mobile Layout: Sticky Header Style */
-    
-@media (max-width: 899px) {
-    .container {
-        padding: 0 1rem;
-    }
+        @media (max-width: 899px) {
+            .container {
+                padding: 0 1rem;
+            }
 
-    .split-layout {
-        display: flex;
-        flex-direction: column;
-    }
+            .split-layout {
+                display: flex;
+                flex-direction: column;
+            }
 
-    .sticky-image-wrapper {
-        display: flex; 
-        position: sticky;
-        top: 0; 
-        height: 17vh;
-        width: 100vw;
-        margin-left: calc(-50vw + 50%); /* FIXED: Centers full-width element */
-        padding: 2.7rem 0;
-        background: linear-gradient(to bottom, var(--charcoal) 85%, rgba(26,26,26,0)); 
-        align-items: center;
-        justify-content: center;
-        z-index: 50;
-        border-bottom: none;
-        overflow: hidden; /* ADDED: Prevents any overflow */
-    }
+            .sticky-image-wrapper {
+                display: flex; 
+                position: sticky;
+                top: 0; 
+                height: 17vh;
+                /* FIXED: Changed 100vw to 100% to prevent scrollbar width issues */
+                width: 100vw; 
+                margin-left: calc(-50vw + 50%); 
+                padding: 2.7rem 0;
+                background: linear-gradient(to bottom, var(--charcoal) 85%, rgba(26,26,26,0)); 
+                align-items: center;
+                justify-content: center;
+                z-index: 50;
+                border-bottom: none;
+                overflow: hidden; 
+            }
 
-            /* Increased specificity to override .step-wrapper img */
             .step-wrapper .mobile-only-img {
                 display: block;
             }
@@ -173,10 +172,9 @@
                 display: none;
             }
 
-            /* Mobile Image Handling */
             .image-stack {
                 height: 100%;
-                width: 100%; /* Fixed: Set to 100% width to prevent collapse */
+                width: 100%; 
                 max-width: 100%;
                 aspect-ratio: auto; 
             }
@@ -186,22 +184,18 @@
                 object-position: center;
             }
 
-            /* Adjust Text for Mobile Readability */
             .scrolling-content {
                 position: relative;
-                z-index: 1; /* Scroll BEHIND the image */
+                z-index: 1; 
                 margin-top: 1rem; 
                 padding-bottom: 20vh;
             }
 
             .text-block {
                 min-height: auto;
-                /* Standard layout, no overlap tricks needed */
                 padding-bottom: 2rem; 
                 padding-top: 2rem;
                 margin-bottom: 2rem;
-                
-                /* Reset background/border from previous iteration */
                 background: none;
                 border: none;
                 backdrop-filter: none;
@@ -212,20 +206,18 @@
                 opacity: 1;
             }
 
-            /* Spacer for the first block not needed as much now, but good for breathing room */
             .text-block:first-child {
                 margin-top: 1rem; 
             }
             
             h1 {
-                font-size: 2.5rem !important; /* Smaller H1 for mobile */
+                font-size: 2.5rem !important; 
             }
         }
 
         /* Image Stack Logic */
         .image-stack {
             position: relative;
-            /* Aspect ratio handled in media queries */
         }
 
         .step-wrapper {
@@ -244,8 +236,6 @@
             object-fit: contain; 
             display: block;
         }
-
-        /* Show/Hide Logic is in Media Queries */
         
         .step-wrapper.active-step {
             opacity: 1;
@@ -254,7 +244,6 @@
 
         /* Text Content Styling */
         .scrolling-content {
-            /* Large bottom padding removed so scroll stops at form */
             padding-bottom: 10vh; 
         }
 
@@ -262,7 +251,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            opacity: 0.3; /* Lower inactive opacity */
+            opacity: 0.3; 
             transition: opacity 0.5s ease;
         }
 
@@ -340,7 +329,7 @@
             font-family: 'Work Sans', sans-serif;
             font-size: 1rem;
             transition: all 0.3s ease;
-            box-sizing: border-box; /* Ensures padding doesn't break width */
+            box-sizing: border-box; 
         }
 
         .form-container input:focus,
@@ -379,64 +368,53 @@
 </head>
 <body>
 
-    <!-- Main Scroll Section -->
     <section class="hero-section" id="heroTrigger">
         <div class="container split-layout">
             
-            <!-- Sticky Images -->
             <div class="sticky-image-wrapper">
                 <div class="image-stack" id="imageStack">
                     
-                    <!-- Step 1 -->
                     <div class="step-wrapper active-step">
                         <img src="step-1.png" class="desktop-only-img" alt="Step 1">
                         <img src="mobile-step-1.png" class="mobile-only-img" alt="Step 1">
                     </div>
 
-                    <!-- Step 2 -->
                     <div class="step-wrapper">
                         <img src="step-2.png" class="desktop-only-img" alt="Step 2">
                         <img src="mobile-step-2.png" class="mobile-only-img" alt="Step 2">
                     </div>
 
-                    <!-- Step 3 -->
                     <div class="step-wrapper">
                         <img src="step-3.png" class="desktop-only-img" alt="Step 3">
                         <img src="mobile-step-3.png" class="mobile-only-img" alt="Step 3">
                     </div>
 
-                    <!-- Step 4 -->
                     <div class="step-wrapper">
                         <img src="step-4.png" class="desktop-only-img" alt="Step 4">
                         <img src="mobile-step-4.png" class="mobile-only-img" alt="Step 4">
                     </div>
 
-                    <!-- Step 5 -->
                     <div class="step-wrapper">
                         <img src="step-5.png" class="desktop-only-img" alt="Step 5">
                         <img src="mobile-step-5.png" class="mobile-only-img" alt="Step 5">
                     </div>
 
-                    <!-- Step 6 -->
                     <div class="step-wrapper">
                         <img src="step-6.png" class="desktop-only-img" alt="Step 6">
                         <img src="mobile-step-6.png" class="mobile-only-img" alt="Step 6">
                     </div>
 
-                    <!-- Step 7 -->
                     <div class="step-wrapper">
                         <img src="step-9.png" class="desktop-only-img" alt="Step 7">
                         <img src="mobile-step-9.png" class="mobile-only-img" alt="Step 7">
                     </div>
 
-                    <!-- Step 8 -->
                     <div class="step-wrapper">
                         <img src="step-9.png" class="desktop-only-img" alt="Step 8">
                         <img src="mobile-step-9.png" class="mobile-only-img" alt="Step 8">
                     </div>
                     
-                      <!-- Step 9 -->
-                    <div class="step-wrapper">
+                      <div class="step-wrapper">
                         <img src="step-9.png" class="desktop-only-img" alt="Step 9">
                         <img src="mobile-step-9.png" class="mobile-only-img" alt="Step 9">
                     </div>
@@ -444,9 +422,7 @@
                 </div>
             </div>
 
-            <!-- Right Column: Scrolling Text -->
             <div class="scrolling-content" id="textContent">
-<!-- Block 1 -->
 <div class="text-block active-block">
     <h1 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 2rem; font-family: 'Source Serif Pro', serif;">
         Start your sales process from <span class="highlight">inside your prospect’s head.</span>
@@ -461,12 +437,11 @@ Inner Pitch is a boutique, done-for-you service for deep psychological and strat
     
 </div>
 
-<!-- Block 2 -->
 <div class="text-block">
     <h2>The problem: Scale has burned away the human connection.</h2>
     <p>Twenty years of marketing and sales technology has flattened real people into tokens, personas, and cookie-cutter AI personalization. Everyone hates it, and it's just getting worse.
     </p>
-<P>Meanwhile, the one thing that still works — relationship selling — doesn't scale. Genuine empathy requires hours of research, discovery, and prep for every prospect. Few people still have the skills, and even fewer have the time.
+<P>Meanwhile, the one thing that still works — relationship selling — doesn't scale. Genuine empathy requires hours of research, discovery, and prep for every prospect. Few people still have the skills, and even fewer have the time.
 
     </p>
     
@@ -474,7 +449,6 @@ Inner Pitch is a boutique, done-for-you service for deep psychological and strat
 </div>
 
 
-<!-- Block 4 -->
 <div class="text-block">
     <h2>Inner Pitch brings back the human craft of selling.</h2>
     <p>
@@ -484,7 +458,6 @@ Inner Pitch is a boutique, done-for-you service for deep psychological and strat
     </p>
 </div>
 
-<!-- Block 5 -->
 <div class="text-block">
     <h2>Our customers are high-value B2B sellers.</h2>
     <p>We work with two types of companies:</p>
@@ -495,7 +468,6 @@ Inner Pitch is a boutique, done-for-you service for deep psychological and strat
 </div>
 
 
-<!-- Block 6 -->
 <div class="text-block">
     <h2>We don't create leads, we convert them.</h2>
     <p>Inner Pitch isn't another lead database dumping 10,000 names on your desk. We deliver psychological, operational, and strategic profiles for every decision-maker, plus hyper-personalized outreach messaging, conversation strategies, and deal guidance built around how each person thinks and talks. </P>
@@ -503,7 +475,6 @@ Inner Pitch is a boutique, done-for-you service for deep psychological and strat
     <P>Customers see reply rates rise, first meetings deepen, and stalled pipeline re-engage. Teams have seen conversion rates jump 40% and research time drop 60–80%, with prospects saying, “This is exactly what we’ve been talking about internally.” </p>
     
 </div>
-<!-- Block 7 -->
 <div class="text-block">
     <h2>Most importantly: Inner Pitch is a service, not a software</h2>
     <p>We are a boutique service, not another software platform. There's no training and no integrations.</P><P>You just send us basic lead info (name, title, company — no PII and nothing confidential), and we return fully built dossiers, outreach materials, and call plans. </p>
@@ -514,7 +485,6 @@ Inner Pitch is a boutique, done-for-you service for deep psychological and strat
 
 
 
-<!-- Block 8 -->
 <div class="text-block">
     <h2>See it yourself — and win a deal while you’re at it.</h2>
     
