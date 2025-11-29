@@ -15,6 +15,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
+        /* --- FIX: Global Box Sizing Reset --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
         :root {
             --charcoal: #1a1a1a;
             --white: #ffffff;
@@ -26,8 +31,10 @@
 
         html {
             scroll-behavior: smooth;
-            overflow-x: hidden; /* FIXED: Prevents horizontal scroll on root */
+            /* --- FIX: Strict Horizontal Lock --- */
             width: 100%;
+            overflow-x: hidden;
+            overscroll-behavior-x: none; /* Prevents swipe navigation/bounce */
         }
 
         body {
@@ -36,8 +43,10 @@
             font-family: 'Work Sans', sans-serif;
             background-color: var(--charcoal);
             color: var(--white);
-            overflow-x: hidden; /* FIXED: Double protection */
+            /* --- FIX: Ensure Body matches HTML constraints --- */
             width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
             position: relative;
         }
 
@@ -66,22 +75,22 @@
 
         .hero-section {
             position: relative;
-            background-color: #1a1a1a;
-            padding-bottom: 0;
-            /* FIXED: This clips the pulsing animation so it doesn't overflow */
-            overflow: hidden; 
-            width: 100%;
+            background-color: #1a1a1a; /* Explicit Charcoal Background */
+            padding-bottom: 0; /* Remove padding here, handle in scrolling-content */
+            overflow: hidden; /* Adds extra layer of protection */
         }
 
+        /* Subtle Orange Glow - GRADIENT REMOVED */
         .hero-section::before {
             content: '';
             position: absolute;
-            width: 100%; 
+            width: 100%; /* Limit to width */
             height: 100%;
             top: 0;
             left: 0;
             pointer-events: none;
             z-index: 1;
+            /* Optional: Animation */
             animation: pulse 8s ease-in-out infinite;
         }
 
@@ -95,7 +104,7 @@
             margin: 0 auto;
             padding: 0 2rem;
             position: relative;
-            z-index: 2; 
+            z-index: 2; /* Content above glow */
         }
 
         /* Desktop Layout: Split Screen */
@@ -113,10 +122,11 @@
                 height: 100vh; 
                 width: 100%;
                 display: flex;
-                align-items: center; 
+                align-items: center; /* Vertical Center */
                 justify-content: center;
             }
 
+            /* Increased specificity to override .step-wrapper img */
             .step-wrapper .mobile-only-img {
                 display: none;
             }
@@ -125,10 +135,11 @@
                 display: block;
             }
 
+            /* Desktop Aspect Ratio: 768 / 1056 */
             .image-stack {
                 width: 100%;
                 aspect-ratio: 768 / 1056; 
-                max-width: 500px; 
+                max-width: 500px; /* Cap width so it doesn't get too huge vertically */
             }
 
             .text-block {
@@ -152,18 +163,18 @@
                 position: sticky;
                 top: 0; 
                 height: 17vh;
-                /* FIXED: Changed 100vw to 100% to prevent scrollbar width issues */
-                width: 100vw; 
-                margin-left: calc(-50vw + 50%); 
+                width: 100vw;
+                margin-left: calc(-50vw + 50%); /* Centers full-width element */
                 padding: 2.7rem 0;
                 background: linear-gradient(to bottom, var(--charcoal) 85%, rgba(26,26,26,0)); 
                 align-items: center;
                 justify-content: center;
                 z-index: 50;
                 border-bottom: none;
-                overflow: hidden; 
+                overflow: hidden; /* Prevents any overflow */
             }
 
+            /* Increased specificity to override .step-wrapper img */
             .step-wrapper .mobile-only-img {
                 display: block;
             }
@@ -172,9 +183,10 @@
                 display: none;
             }
 
+            /* Mobile Image Handling */
             .image-stack {
                 height: 100%;
-                width: 100%; 
+                width: 100%; /* Fixed: Set to 100% width to prevent collapse */
                 max-width: 100%;
                 aspect-ratio: auto; 
             }
@@ -184,18 +196,22 @@
                 object-position: center;
             }
 
+            /* Adjust Text for Mobile Readability */
             .scrolling-content {
                 position: relative;
-                z-index: 1; 
+                z-index: 1; /* Scroll BEHIND the image */
                 margin-top: 1rem; 
                 padding-bottom: 20vh;
             }
 
             .text-block {
                 min-height: auto;
+                /* Standard layout, no overlap tricks needed */
                 padding-bottom: 2rem; 
                 padding-top: 2rem;
                 margin-bottom: 2rem;
+                
+                /* Reset background/border from previous iteration */
                 background: none;
                 border: none;
                 backdrop-filter: none;
@@ -206,18 +222,20 @@
                 opacity: 1;
             }
 
+            /* Spacer for the first block not needed as much now, but good for breathing room */
             .text-block:first-child {
                 margin-top: 1rem; 
             }
             
             h1 {
-                font-size: 2.5rem !important; 
+                font-size: 2.5rem !important; /* Smaller H1 for mobile */
             }
         }
 
         /* Image Stack Logic */
         .image-stack {
             position: relative;
+            /* Aspect ratio handled in media queries */
         }
 
         .step-wrapper {
@@ -236,6 +254,8 @@
             object-fit: contain; 
             display: block;
         }
+
+        /* Show/Hide Logic is in Media Queries */
         
         .step-wrapper.active-step {
             opacity: 1;
@@ -244,6 +264,7 @@
 
         /* Text Content Styling */
         .scrolling-content {
+            /* Large bottom padding removed so scroll stops at form */
             padding-bottom: 10vh; 
         }
 
@@ -251,7 +272,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            opacity: 0.3; 
+            opacity: 0.3; /* Lower inactive opacity */
             transition: opacity 0.5s ease;
         }
 
@@ -329,7 +350,7 @@
             font-family: 'Work Sans', sans-serif;
             font-size: 1rem;
             transition: all 0.3s ease;
-            box-sizing: border-box; 
+            box-sizing: border-box; /* Ensures padding doesn't break width */
         }
 
         .form-container input:focus,
